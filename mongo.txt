@@ -1,0 +1,21 @@
+—2
+db.orders.insert({ order_date": new Date("2017-12-01"), order_total: 5.00, line_items: { unit_price: 4, order_total: 3, product_name: 'mittens'}});
+
+db.orders.insert({  order_date": new Date("2016-11-01"), order_total: 12.00, line_items: { unit_price: 27, order_total: 8, product_name: 'computers'}});
+
+db.orders.insert({  order_date": new Date("2015-12-25”), order_total: 3.50, line_items: { unit_price: 10, order_total: 1, product_name: 'tomatoes'}});
+
+—3
+db.orders.find({ "_id" : ObjectId("5a296b8f0d25e867e74c97e2")});
+
+—4
+db.orders.find({}).pretty()
+
+—5
+db.orders.find({order_date: {'$lt': new Date('2016-01-01')}})
+
+—6
+db.orders.find({order_date: {'$gt': new Date('2016-01-01')}})
+
+—7
+db.orders.find({'line_items.quantity': { $lt : 50, $gt : 5}})
